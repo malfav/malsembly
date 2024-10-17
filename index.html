@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembly Instructions and Malware Analysis Tools</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+
+        .card {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .card.dark-mode {
+            background-color: #1e1e1e;
+        }
+
+        .table {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .table th, .table td {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .table th.dark-mode, .table td.dark-mode {
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+        }
+
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .toggle-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="mode-toggle">
+            <label class="toggle-label" for="darkModeToggle">Dark Mode</label>
+            <input type="checkbox" id="darkModeToggle">
+        </div>
+
+        <!-- Assembly Instructions Table -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Common Assembly Instructions for Malware Analysis
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Instruction</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MOV</td>
+                            <td>Moves data from one location to another (e.g., from a register to memory).</td>
+                        </tr>
+                        <tr>
+                            <td>ADD</td>
+                            <td>Adds two values together and stores the result.</td>
+                        </tr>
+                        <tr>
+                            <td>SUB</td>
+                            <td>Subtracts one value from another.</td>
+                        </tr>
+                        <tr>
+                            <td>PUSH</td>
+                            <td>Stores a value on the stack (temporary storage).</td>
+                        </tr>
+                        <tr>
+                            <td>POP</td>
+                            <td>Removes and retrieves the last value from the stack.</td>
+                        </tr>
+                        <tr>
+                            <td>CALL</td>
+                            <td>Jumps to a function or procedure and saves the return address.</td>
+                        </tr>
+                        <tr>
+                            <td>RET</td>
+                            <td>Returns from a function to the saved return address.</td>
+                        </tr>
+                        <tr>
+                            <td>JMP</td>
+                            <td>Unconditional jump to another part of the program.</td>
+                        </tr>
+                        <tr>
+                            <td>JE/JZ</td>
+                            <td>Jumps if equal (or zero); typically after a comparison.</td>
+                        </tr>
+                        <tr>
+                            <td>JNE/JNZ</td>
+                            <td>Jumps if not equal (or not zero); after a comparison.</td>
+                        </tr>
+                        <tr>
+                            <td>INT</td>
+                            <td>Triggers an interrupt, often used for system calls.</td>
+                        </tr>
+                        <tr>
+                            <td>INC</td>
+                            <td>Increases the value of a register or memory location by 1.</td>
+                        </tr>
+                        <tr>
+                            <td>DEC</td>
+                            <td>Decreases the value of a register or memory location by 1.</td>
+                        </tr>
+                        <tr>
+                            <td>OR</td>
+                            <td>Performs a bitwise OR operation on two values.</td>
+                        </tr>
+                        <tr>
+                            <td>AND</td>
+                            <td>Performs a bitwise AND operation on two values.</td>
+                        </tr>
+                        <tr>
+                            <td>XOR</td>
+                            <td>Performs a bitwise XOR (exclusive OR), often used to zero out registers.</td>
+                        </tr>
+                        <tr>
+                            <td>SHL</td>
+                            <td>Shifts the bits of a value to the left (multiplies by powers of 2).</td>
+                        </tr>
+                        <tr>
+                            <td>SHR</td>
+                            <td>Shifts the bits of a value to the right (divides by powers of 2).</td>
+                        </tr>
+                        <tr>
+                            <td>LEA</td>
+                            <td>Loads the effective address of a memory operand into a register.</td>
+                        </tr>
+                        <tr>
+                            <td>NOP</td>
+                            <td>No operation; does nothing. Often used to fill space.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Reverse Engineering Tools Table -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Reverse Engineering Tools
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ghidra</td>
+                            <td>A free, open-source reverse engineering tool developed by NSA for analyzing executable files.</td>
+                        </tr>
+                        <tr>
+                            <td>IDA Pro</td>
+                            <td>Interactive Disassembler widely used for disassembling and reverse engineering binaries.</td>
+                        </tr>
+                        <tr>
+                            <td>Binary Ninja</td>
+                            <td>A reverse engineering platform for analyzing binary code, offering both disassembly and decompilation.</td>
+                        </tr>
+                        <tr>
+                            <td>Radare2</td>
+                            <td>A set of tools for reverse engineering and analyzing binaries, focusing on flexibility and performance.</td>
+                        </tr>
+                        <tr>
+                            <td>x64dbg</td>
+                            <td>An open-source debugger for analyzing 64-bit executables.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Document Analysis Tools -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Document Analysis Tools
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>olevba</td>
+                            <td>Tool to analyze VBA macros in Office documents for potential malicious behavior.</td>
+                        </tr>
+                        <tr>
+                            <td>oleid</td>
+                            <td>Tool to detect suspicious characteristics in OLE files like embedded objects and macros.</td>
+                        </tr>
+                        <tr>
+                            <td>mraptor</td>
+                            <td>Tool to detect malicious features in Microsoft Office documents.</td>
+                        </tr>
+                        <tr>
+                            <td>pdfid</td>
+                            <td>Identifies potentially malicious PDFs by analyzing objects and suspicious features.</td>
+                        </tr>
+                        <tr>
+                            <td>pdf-parser</td>
+                            <td>PDF analysis tool used to extract, analyze, and parse PDF contents for malicious elements.</td>
+                        </tr>
+                        <tr>
+                            <td>PyMuPDF</td>
+                            <td>A Python binding for the MuPDF library, used to work with PDF files for analysis.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- EXE Analysis Tools -->
+        <div class="card mt-4">
+            <div class="card-header">
+                EXE Analysis Tools
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PEiD</td>
+                            <td>Identifies packed executables and compilers for Windows PE files.</td>
+                        </tr>
+                        <tr>
+                            <td>PEview</td>
+                            <td>Allows for viewing the structure and contents of PE files.</td>
+                        </tr>
+                        <tr>
+                            <td>CFF Explorer</td>
+                            <td>A tool for working with PE32 and PE64 files to view headers, sections, and resources.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ELF Analysis Tools -->
+        <div class="card mt-4">
+            <div class="card-header">
+                ELF Analysis Tools
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>readelf</td>
+                            <td>Displays information about ELF files and their sections, symbols, and segments.</td>
+                        </tr>
+                        <tr>
+                            <td>objdump</td>
+                            <td>Displays various aspects of object files and ELF executables, including disassembly.</td>
+                        </tr>
+                        <tr>
+                            <td>eu-readelf</td>
+                            <td>A modern implementation of readelf for examining ELF file contents.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- APK Analysis Tools -->
+        <div class="card mt-4">
+            <div class="card-header">
+                APK Analysis Tools
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>APKTool</td>
+                            <td>Tool for decompiling, disassembling, and modifying Android APK files.</td>
+                        </tr>
+                        <tr>
+                            <td>JD-GUI</td>
+                            <td>Java decompiler for viewing the source code of APKs and other Java-based applications.</td>
+                        </tr>
+                        <tr>
+                            <td>androguard</td>
+                            <td>A Python tool for analyzing Android applications and APK contents.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const cards = document.querySelectorAll('.card');
+        const tableHeaders = document.querySelectorAll('.table th');
+        const tableCells = document.querySelectorAll('.table td');
+
+        toggle.addEventListener('change', function () {
+            body.classList.toggle('dark-mode');
+
+            cards.forEach(card => {
+                card.classList.toggle('dark-mode');
+            });
+
+            tableHeaders.forEach(header => {
+                header.classList.toggle('dark-mode');
+            });
+
+            tableCells.forEach(cell => {
+                cell.classList.toggle('dark-mode');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
